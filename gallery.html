@@ -33,7 +33,7 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #D10000;
+            background: #1D4ED8;
             border-radius: 10px;
         }
 
@@ -62,6 +62,45 @@
                 transform: scale(1);
             }
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+        }
+
+        .modal-close:hover {
+            color: #1D4ED8;
+        }
     </style>
 </head>
 
@@ -73,17 +112,17 @@
             <div class="flex justify-between h-20">
                 <div class="flex items-center">
                     <a href="index.html" class="text-2xl font-bold heading-font tracking-tighter">
-                        <span class="text-red-600">CASTRO'S</span> <span class="text-gray-900">ROOFING</span>
+                        <span class="text-blue-600">CASTRO'S</span> <span class="text-gray-900">ROOFING</span>
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-gray-700 hover:text-red-600 font-medium transition">Home</a>
-                    <a href="services.html" class="text-gray-700 hover:text-red-600 font-medium transition">Services</a>
-                    <a href="packages.html" class="text-gray-700 hover:text-red-600 font-medium transition">Packages</a>
-                    <a href="gallery.html" class="text-red-600 font-medium transition">Gallery</a>
-                    <a href="faq.html" class="text-gray-700 hover:text-red-600 font-medium transition">FAQ</a>
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium transition">Home</a>
+                    <a href="services.html" class="text-gray-700 hover:text-blue-600 font-medium transition">Services</a>
+                    <a href="packages.html" class="text-gray-700 hover:text-blue-600 font-medium transition">Packages</a>
+                    <a href="gallery.html" class="text-blue-600 font-medium transition">Gallery</a>
+                    <a href="faq.html" class="text-gray-700 hover:text-blue-600 font-medium transition">FAQ</a>
                     <a href="index.html#contact"
-                        class="bg-red-600 text-white px-6 py-2 rounded-md font-bold hover:bg-red-700 transition">
+                        class="bg-blue-600 text-white px-6 py-2 rounded-md font-bold hover:bg-blue-700 transition">
                         Get Free Estimate
                     </a>
                 </div>
@@ -97,9 +136,9 @@
             <a href="index.html" class="block py-3 text-gray-700 font-medium border-b border-gray-50">Home</a>
             <a href="services.html" class="block py-3 text-gray-700 font-medium border-b border-gray-50">Services</a>
             <a href="packages.html" class="block py-3 text-gray-700 font-medium border-b border-gray-50">Packages</a>
-            <a href="gallery.html" class="block py-3 text-red-600 font-medium border-b border-gray-50">Gallery</a>
+            <a href="gallery.html" class="block py-3 text-blue-600 font-medium border-b border-gray-50">Gallery</a>
             <a href="faq.html" class="block py-3 text-gray-700 font-medium border-b border-gray-50">FAQ</a>
-            <a href="tel:8327644595" class="flex items-center gap-2 py-4 text-red-600 font-bold"><i data-lucide="phone"
+            <a href="tel:8327644595" class="flex items-center gap-2 py-4 text-blue-600 font-bold"><i data-lucide="phone"
                     class="w-5 h-5"></i> (832) 764-4595</a>
         </div>
     </nav>
@@ -119,7 +158,7 @@
         <!-- Filters -->
         <div class="flex flex-wrap justify-center gap-4 mb-16" id="filters">
             <button onclick="filterGallery('all')"
-                class="filter-btn active px-6 py-2 rounded-full font-bold uppercase tracking-wide transition bg-red-600 text-white hover:bg-red-700 shadow-lg shadow-red-600/20"
+                class="filter-btn active px-6 py-2 rounded-full font-bold uppercase tracking-wide transition bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-600/20"
                 data-filter="all">All</button>
             <button onclick="filterGallery('residential')"
                 class="filter-btn px-6 py-2 rounded-full font-bold uppercase tracking-wide transition bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
@@ -137,318 +176,179 @@
 
             <!-- Item 1 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/1ff533e4-43c5-44ff-8049-330cedb97df5.jpg')">
                 <img src="images/1ff533e4-43c5-44ff-8049-330cedb97df5.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Quality Installation</h3>
-                    <p class="text-gray-400 text-sm">Houston, TX</p>
-                </div>
             </div>
 
             <!-- Item 2 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/27da140f-1dad-4d22-baba-8fa74a2e05b4.jpg')">
                 <img src="images/27da140f-1dad-4d22-baba-8fa74a2e05b4.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Full Roof Replacement</h3>
-                    <p class="text-gray-400 text-sm">Katy, TX</p>
-                </div>
             </div>
 
             <!-- Item 3 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/4d3519f8-0f34-4da4-839a-cb5457998737.jpg')">
                 <img src="images/4d3519f8-0f34-4da4-839a-cb5457998737.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Modern Shingle Installation
-                    </h3>
-                    <p class="text-gray-400 text-sm">Sugar Land, TX</p>
-                </div>
             </div>
 
             <!-- Item 4 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/59bf781d-6b9c-4004-8556-7426ce604958.jpg')">
                 <img src="images/59bf781d-6b9c-4004-8556-7426ce604958.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Expert Craftsmanship</h3>
-                    <p class="text-gray-400 text-sm">The Woodlands, TX</p>
-                </div>
             </div>
 
             <!-- Item 5 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/750c039e-aa63-4f5e-b9ba-a2bf431de6a6.jpg')">
                 <img src="images/750c039e-aa63-4f5e-b9ba-a2bf431de6a6.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Complete Restoration</h3>
-                    <p class="text-gray-400 text-sm">Houston, TX</p>
-                </div>
             </div>
 
             <!-- Item 6 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/7bb52fcc-638c-48bf-897c-2530e95573f1.jpg')">
                 <img src="images/7bb52fcc-638c-48bf-897c-2530e95573f1.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Precision Installation</h3>
-                    <p class="text-gray-400 text-sm">Pearland, TX</p>
-                </div>
             </div>
 
             <!-- Item 7 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="commercial">
+                data-category="commercial" onclick="openModal('images/875f1d09-8616-40c9-9e31-2e7be5dad914.jpg')">
                 <img src="images/875f1d09-8616-40c9-9e31-2e7be5dad914.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Commercial</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Commercial Roofing</h3>
-                    <p class="text-gray-400 text-sm">Houston, TX</p>
-                </div>
             </div>
 
             <!-- Item 8 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/8a925fe2-6635-47f9-bfef-1c92c36868b7.jpg')">
                 <img src="images/8a925fe2-6635-47f9-bfef-1c92c36868b7.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Premium Quality</h3>
-                    <p class="text-gray-400 text-sm">Katy, TX</p>
-                </div>
             </div>
 
             <!-- Item 9 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/935defca-c408-47ab-84d8-dd2a47c143e5.jpg')">
                 <img src="images/935defca-c408-47ab-84d8-dd2a47c143e5.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Custom Work</h3>
-                    <p class="text-gray-400 text-sm">Sugar Land, TX</p>
-                </div>
             </div>
 
             <!-- Item 10 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/residentialroof.png')">
                 <img src="images/residentialroof.png" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Professional Service</h3>
-                    <p class="text-gray-400 text-sm">The Woodlands, TX</p>
-                </div>
             </div>
 
             <!-- Item 11 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/a3330a0d-527d-47f3-a5b3-3f747fe2172c.jpg')">
                 <img src="images/a3330a0d-527d-47f3-a5b3-3f747fe2172c.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Roof Replacement</h3>
-                    <p class="text-gray-400 text-sm">Houston, TX</p>
-                </div>
             </div>
 
             <!-- Item 12 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/a6ac3d8d-259b-443e-9e02-f7cf88a909ad.jpg')">
                 <img src="images/a6ac3d8d-259b-443e-9e02-f7cf88a909ad.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Expert Installation</h3>
-                    <p class="text-gray-400 text-sm">Pearland, TX</p>
-                </div>
             </div>
 
             <!-- Item 13 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="repairs">
+                data-category="repairs" onclick="openModal('images/a9a1c09a-95c2-4ed2-9779-2c72eb17378b.jpg')">
                 <img src="images/a9a1c09a-95c2-4ed2-9779-2c72eb17378b.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Repairs</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Roof Repair</h3>
-                    <p class="text-gray-400 text-sm">Katy, TX</p>
-                </div>
             </div>
 
             <!-- Item 14 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/aa3160e2-d626-46fa-ae3c-56590b7cf762.jpg')">
                 <img src="images/aa3160e2-d626-46fa-ae3c-56590b7cf762.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Quality Roofing</h3>
-                    <p class="text-gray-400 text-sm">Sugar Land, TX</p>
-                </div>
             </div>
 
             <!-- Item 15 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/b1e7ed8d-6942-497e-b802-575761b383d1.jpg')">
                 <img src="images/b1e7ed8d-6942-497e-b802-575761b383d1.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Complete Roof System</h3>
-                    <p class="text-gray-400 text-sm">The Woodlands, TX</p>
-                </div>
             </div>
 
             <!-- Item 16 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="commercial">
+                data-category="commercial" onclick="openModal('images/b91f12fa-de38-4c8c-a0e5-29c0dad4ca86.jpg')">
                 <img src="images/b91f12fa-de38-4c8c-a0e5-29c0dad4ca86.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Commercial</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Commercial Project</h3>
-                    <p class="text-gray-400 text-sm">Houston, TX</p>
-                </div>
             </div>
 
             <!-- Item 17 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/bf1f637d-a6d9-4269-a8b4-5803090a8e62 (1).jpg')">
                 <img src="images/bf1f637d-a6d9-4269-a8b4-5803090a8e62 (1).jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Premium Installation</h3>
-                    <p class="text-gray-400 text-sm">Katy, TX</p>
-                </div>
             </div>
 
             <!-- Item 18 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/bf1f637d-a6d9-4269-a8b4-5803090a8e62.jpg')">
                 <img src="images/bf1f637d-a6d9-4269-a8b4-5803090a8e62.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Complete Service</h3>
-                    <p class="text-gray-400 text-sm">Pearland, TX</p>
-                </div>
             </div>
 
             <!-- Item 19 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/c2e87832-4549-4547-9a3b-4632bc39b8f4.jpg')">
                 <img src="images/c2e87832-4549-4547-9a3b-4632bc39b8f4.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Modern Roofing</h3>
-                    <p class="text-gray-400 text-sm">Sugar Land, TX</p>
-                </div>
             </div>
 
             <!-- Item 20 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="repairs">
+                data-category="repairs" onclick="openModal('images/d509e260-8e8f-4533-a1ce-d3d251384e6b.jpg')">
                 <img src="images/d509e260-8e8f-4533-a1ce-d3d251384e6b.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Repairs</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Leak Repair & Inspection</h3>
-                    <p class="text-gray-400 text-sm">The Woodlands, TX</p>
-                </div>
             </div>
 
             <!-- Item 21 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/df8ae2d5-dbb8-459f-abab-ff5b87fed463.jpg')">
                 <img src="images/df8ae2d5-dbb8-459f-abab-ff5b87fed463.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Professional Work</h3>
-                    <p class="text-gray-400 text-sm">Houston, TX</p>
-                </div>
             </div>
 
             <!-- Item 22 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/f6157375-49c0-4901-a9dd-cb07a4aeab73.jpg')">
                 <img src="images/f6157375-49c0-4901-a9dd-cb07a4aeab73.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Expert Roofing</h3>
-                    <p class="text-gray-400 text-sm">Katy, TX</p>
-                </div>
             </div>
 
             <!-- Item 23 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/fd500ec9-6e30-4324-a94d-d3600d4f58a6 (1).jpg')">
                 <img src="images/fd500ec9-6e30-4324-a94d-d3600d4f58a6 (1).jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Quality Craftsmanship</h3>
-                    <p class="text-gray-400 text-sm">Pearland, TX</p>
-                </div>
             </div>
 
             <!-- Item 24 -->
             <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
-                data-category="residential">
+                data-category="residential" onclick="openModal('images/fd500ec9-6e30-4324-a94d-d3600d4f58a6.jpg')">
                 <img src="images/fd500ec9-6e30-4324-a94d-d3600d4f58a6.jpg" alt="Roofing Project"
                     class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
-                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
-                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Trusted Service</h3>
-                    <p class="text-gray-400 text-sm">Sugar Land, TX</p>
-                </div>
             </div>
 
         </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img id="modalImage" class="modal-content">
     </div>
 
     <div class="bg-gray-50 py-20 px-4">
@@ -457,7 +357,7 @@
             <p className="text-gray-600 mb-8 max-w-xl mx-auto">Let's create something beautiful for your home. Contact
                 us today for a free estimate.</p>
             <a href="index.html#contact"
-                class="inline-block bg-red-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-700 transition shadow-lg shadow-red-600/20 uppercase">Get
+                class="inline-block bg-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/20 uppercase">Get
                 Your Quote</a>
         </div>
     </div>
@@ -467,7 +367,7 @@
         <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-12">
             <div class="md:col-span-2">
                 <span class="text-3xl font-bold heading-font tracking-tighter mb-6 block uppercase"><span
-                        class="text-red-600">CASTRO'S</span> ROOFING</span>
+                        class="text-blue-600">CASTRO'S</span> ROOFING</span>
                 <p class="text-gray-400 mb-8 max-w-md">Professional roofing services for the Houston area.</p>
             </div>
             <div>
@@ -498,6 +398,7 @@
     <script>
         lucide.createIcons();
         document.getElementById('year').textContent = new Date().getFullYear();
+
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
             const menuIcon = document.getElementById('menu-icon');
@@ -514,11 +415,11 @@
                 if (btn.dataset.filter === category) {
                     // Active State: Red background, White text, Red Hover
                     btn.classList.remove('bg-white', 'text-gray-600', 'border-gray-200', 'hover:bg-gray-100');
-                    btn.classList.add('bg-red-600', 'text-white', 'hover:bg-red-700', 'shadow-lg', 'shadow-red-600/20');
+                    btn.classList.add('bg-blue-600', 'text-white', 'hover:bg-blue-700', 'shadow-lg', 'shadow-blue-600/20');
                 } else {
                     // Inactive State: White background, Gray text, Gray Hover
                     btn.classList.add('bg-white', 'text-gray-600', 'border-gray-200', 'hover:bg-gray-100');
-                    btn.classList.remove('bg-red-600', 'text-white', 'hover:bg-red-700', 'shadow-lg', 'shadow-red-600/20');
+                    btn.classList.remove('bg-blue-600', 'text-white', 'hover:bg-blue-700', 'shadow-lg', 'shadow-blue-600/20');
                 }
             });
 
@@ -534,6 +435,29 @@
                 }
             });
         }
+
+        // Modal functionality
+        function openModal(imageSrc) {
+            event.stopPropagation();
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.classList.add('active');
+            modalImg.src = imageSrc;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
     </script>
 </body>
 
